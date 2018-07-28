@@ -8,7 +8,14 @@ cards.forEach(function(card) {
     card.classList.add('open', 'show');
     });
 });
-
+/*
+cards.forEach(function(card) {
+  card.addEventListener('click',function(e) {
+    if (card.classList.contains('show','open')
+    card.classList.remove('show', 'open');
+    });
+});
+*/
 
 
 table.onclick = function(event) {
