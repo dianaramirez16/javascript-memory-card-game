@@ -3,6 +3,12 @@
  */
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
+cards.forEach(function(card) {
+  card.addEventListener('click',function(e) {
+    card.classList.add('open', 'show');
+    });
+});
+
 
 
 table.onclick = function(event) {
