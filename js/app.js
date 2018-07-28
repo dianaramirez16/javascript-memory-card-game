@@ -2,8 +2,18 @@
  * Create a list that holds all of your cards
  */
 
- const cards = document.querySelectorAll('.card');
- console.log(cards);
+const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
+
+
+table.onclick = function(event) {
+  let td = event.target.closest('td'); // (1)
+
+  if (!td) return; // (2)
+
+  if (!table.contains(td)) return; // (3)
+
+  highlight(td); // (4)
+};
 
 
 /*
@@ -39,3 +49,17 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+/* counter script
+ Counter: <input type="button" value="1" data-counter>
+
+ <script>
+   document.addEventListener('click', function(event) {
+
+     if (event.target.dataset.counter != undefined) { // if the attribute exists...
+       event.target.value++;
+     }
+
+   });
+ </script>
+*/
