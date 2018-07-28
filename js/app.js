@@ -3,6 +3,8 @@
  */
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
+
+/* allows for first flip of card to show card shape on click */
 cards.forEach(function(card) {
   card.addEventListener('click',function(e) {
     card.classList.add('open', 'show');

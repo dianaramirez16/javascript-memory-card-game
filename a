@@ -1,0 +1,29 @@
+[33mcommit 1842df5b9d6d4d384e10190a89af652c7bdff0a9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: diana ramirez <ramid320@gmail.com>
+Date:   Sat Jul 28 02:46:49 2018 -0700
+
+    added remove show open from card, non functional yet
+
+[33mcommit ffc677a69a7928e4193c36bf2b6fb27a5611609f[m
+Author: diana ramirez <ramid320@gmail.com>
+Date:   Sat Jul 28 02:42:13 2018 -0700
+
+    added flip function to show open card
+
+[33mcommit c41e90ce0bfe8dfd52332818811b692b907eb435[m
+Author: diana ramirez <ramid320@gmail.com>
+Date:   Sat Jul 28 01:08:40 2018 -0700
+
+    added counter code at the end to work on later
+
+[33mcommit 6059e53f4609b87f39aa54208406d36f6fc951b5[m
+Author: diana ramirez <ramid320@gmail.com>
+Date:   Tue Jul 24 00:41:26 2018 -0700
+
+    added cards variable output is NodeList of all cards
+
+[33mcommit efde0b72fb7e92eb2a33b01889ef0180386f4d51[m
+Author: diana ramirez <ramid320@gmail.com>
+Date:   Mon Jul 23 01:13:55 2018 -0700
+
+    starter code
