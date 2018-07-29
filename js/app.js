@@ -8,7 +8,17 @@ const openCards = [];
 /* allows for first flip of card to show card shape on click */
 cards.forEach(function(card) {
   card.addEventListener('click',function(e) {
-    card.classList.add('open', 'show');
+    if (openCards.length > 2) {
+      setTimeout(function() {
+        openCards.forEach(function(card) {
+          card.classList.remove('open','show');
+        });
+
+        openCards = [];
+      }, 1000);
+    } else {
+        card.classList.add('open', 'show');
+      }
     });
 });
 
