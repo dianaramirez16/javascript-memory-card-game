@@ -6,9 +6,15 @@ const cards = document.querySelectorAll('.card'); // creates nodelist of all car
 const openCards = [];
 
 /* allows for first flip of card to show card shape on click */
+
 cards.forEach(function(card) {
-  card.addEventListener('click',function(e) {
-    if (openCards.length > 2) {
+  card.addEventListener('click', function(e) {
+
+    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
+      openCards.push(card);
+      card.classList.add('open', 'show');
+
+    if (openCards.length === 2) {
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
@@ -16,10 +22,8 @@ cards.forEach(function(card) {
 
         openCards = [];
       }, 1000);
-    } else {
-        card.classList.add('open', 'show');
-      }
-    });
+    }
+  });
 });
 
 
