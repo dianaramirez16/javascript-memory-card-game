@@ -7,12 +7,10 @@ const openCards = [];
 
 cards.forEach(function(card) {   /* allows for first flip of card to show card shape on click */
   card.addEventListener('click', function(e) {
-
-    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-      openCards.push(card);
+    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match') && (openCards.length < 2))
+    openCards.push(card); //pushes open cards to array
       card.classList.add('open', 'show');
       console.log('Open Cards:', 'openCards.length');
-
       //check if cards match
 
 
@@ -24,10 +22,11 @@ cards.forEach(function(card) {   /* allows for first flip of card to show card s
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
+
         });
-
-
-      }, 1000);
+        openCards.length = 0; //empties openCards array
+        openCards = [];
+      }, 800);
     }
   });
 });
