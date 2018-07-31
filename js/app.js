@@ -5,22 +5,28 @@
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const openCards = [];
 
-/* allows for first flip of card to show card shape on click */
-
-cards.forEach(function(card) {
+cards.forEach(function(card) {   /* allows for first flip of card to show card shape on click */
   card.addEventListener('click', function(e) {
 
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
       openCards.push(card);
       card.classList.add('open', 'show');
+      console.log('Open Cards:', 'openCards.length');
 
-    if (openCards.length === 2) {
+      //check if cards match
+
+
+
+
+
+      //if cards don't match turn back around
+    if (openCards.length == 2) {
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
         });
 
-        openCards = [];
+
       }, 1000);
     }
   });
