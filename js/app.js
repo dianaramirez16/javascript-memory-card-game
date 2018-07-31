@@ -4,30 +4,36 @@
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const openCards = [];
+const allItems = document.querySelectorAll('.li');
 
-cards.forEach(function(card) {   /* allows for first flip of card to show card shape on click */
+cards.forEach(function(card) {   // flips card on click
   card.addEventListener('click', function(e) {
-    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match') && (openCards.length < 2))
-    openCards.push(card); //pushes open cards to array
+    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
+      openCards.push(card); //pushes open cards to array
       card.classList.add('open', 'show');
       console.log('Open Cards:', 'openCards.length');
-      //check if cards match
+
+      /*check if cards match
+          if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
+            checkMatch(function() {
+                li.classList.match
+                console.log('these cards are a match!');
+            }
+          ) */
 
 
-
-
-
-      //if cards don't match turn back around
-    if (openCards.length == 2) {
+    if (openCards.length >= 2) { //if cards don't match turn back around
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
 
         });
-        openCards.length = 0; //empties openCards array
-        openCards = [];
+          openCards.length = 0; //empties openCards array
+          openCards = [];
       }, 800);
     }
+
+
   });
 });
 
