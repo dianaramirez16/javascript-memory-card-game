@@ -4,7 +4,7 @@
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const openCards = [];
-const allItems = document.querySelectorAll('.li');
+const listItems = document.querySelectorAll('cards.li');
 
 cards.forEach(function(card) {   // flips card on click
   card.addEventListener('click', function(e) { //3 if loops are run
@@ -13,17 +13,17 @@ cards.forEach(function(card) {   // flips card on click
       openCards.push(card); //pushes open cards to array
       card.classList.add('open', 'show');
       console.log('Open Cards:', 'openCards.length');
-      openCards = [];
 
       //check if cards match
           if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
-            checkMatch(function() {
-                li.classList.match
+            (function() {
+
                 console.log('these cards are a match!');
             });
 
 
 
+/*
     if (openCards.length >= 2) { // turn card over if no match
       setTimeout(function() {
         openCards.forEach(function(card) {
@@ -33,7 +33,7 @@ cards.forEach(function(card) {   // flips card on click
           openCards.length = 0; //empties openCards array
           openCards = [];
       }, 800);
-    }
+    } */
 
 
   });
