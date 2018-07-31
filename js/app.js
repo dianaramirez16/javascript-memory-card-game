@@ -7,22 +7,24 @@ const openCards = [];
 const allItems = document.querySelectorAll('.li');
 
 cards.forEach(function(card) {   // flips card on click
-  card.addEventListener('click', function(e) {
+  card.addEventListener('click', function(e) { //3 if loops are run
+
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
       openCards.push(card); //pushes open cards to array
       card.classList.add('open', 'show');
       console.log('Open Cards:', 'openCards.length');
+      openCards = [];
 
-      /*check if cards match
+      //check if cards match
           if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
             checkMatch(function() {
                 li.classList.match
                 console.log('these cards are a match!');
-            }
-          ) */
+            });
 
 
-    if (openCards.length >= 2) { //if cards don't match turn back around
+
+    if (openCards.length >= 2) { // turn card over if no match
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
@@ -37,19 +39,6 @@ cards.forEach(function(card) {   // flips card on click
   });
 });
 
-
-
-
-
-table.onclick = function(event) {
-  let td = event.target.closest('td'); // (1)
-
-  if (!td) return; // (2)
-
-  if (!table.contains(td)) return; // (3)
-
-  highlight(td); // (4)
-};
 
 
 /*
