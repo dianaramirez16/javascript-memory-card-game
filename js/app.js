@@ -18,9 +18,12 @@ const stars = document.querySelector(".stars"); // stars keeping score
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
 let matchedCards = [];
-const listItems = document.querySelectorAll('cards.li');
+
 
 // game functionality
+
+
+
 cards.forEach(function(card) {
   card.addEventListener('click', function(e) { // 3 if loops are run upon click
 
@@ -30,6 +33,7 @@ cards.forEach(function(card) {
       console.log('Open Cards:', 'openCards.length'); // testing purposes
 
 // turn card over if no match ->
+
     if (openCards.length == 2) {
       setTimeout(function() {
         openCards.forEach(function(card) {
@@ -41,7 +45,8 @@ cards.forEach(function(card) {
       }, 800);
     };
 
-// check if cards match ->
+/* // check if cards match ->
+
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
       matchedCards.push(card);
       openCards.forEach(function(card) {
@@ -51,16 +56,12 @@ cards.forEach(function(card) {
         console.log('matched Cards:', 'matchedCards.length'); // testing purposes
         openCards = [];
       })
-    
+    } */
 
-
+      }
     });
   });
 });
-
-
-//check if cards match
- /* */
 
 
 
@@ -73,8 +74,8 @@ cards.forEach(function(card) {
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(cardsList) {
+    var currentIndex = cardsList.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
