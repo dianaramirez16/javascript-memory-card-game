@@ -45,7 +45,7 @@ cards.forEach(function(card) {
       }, 800);
     };
 
-/* // check if cards match ->
+/* // check if cards match -------------------------------------------------------->
 
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
       matchedCards.push(card);
@@ -74,8 +74,8 @@ cards.forEach(function(card) {
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(cardsList) {
-    var currentIndex = cardsList.length, temporaryValue, randomIndex;
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
