@@ -4,6 +4,7 @@
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const openCards = [];
+const matchedCards = [];
 const listItems = document.querySelectorAll('cards.li');
 
 cards.forEach(function(card) {   // flips card on click
@@ -14,16 +15,7 @@ cards.forEach(function(card) {   // flips card on click
       card.classList.add('open', 'show');
       console.log('Open Cards:', 'openCards.length');
 
-      //check if cards match
-          if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
-            (function() {
 
-                console.log('these cards are a match!');
-            });
-
-
-
-/*
     if (openCards.length >= 2) { // turn card over if no match
       setTimeout(function() {
         openCards.forEach(function(card) {
@@ -33,11 +25,22 @@ cards.forEach(function(card) {   // flips card on click
           openCards.length = 0; //empties openCards array
           openCards = [];
       }, 800);
-    } */
+    }
 
 
   });
 });
+
+
+//check if cards match
+ if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
+    openCards = [];
+    const a = openCards.lastIndexOf('');
+    document.getElementById('.card').innerHTML = "These cards are a match at: " + (a);
+    card.classList.add('match');
+    console.log('these cards are a match!');
+});
+
 
 
 
