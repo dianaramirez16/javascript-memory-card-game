@@ -30,7 +30,7 @@ cards.forEach(function(card) {
       console.log('Open Cards:', 'openCards.length'); // testing purposes
 
 // turn card over if no match ->
-    if (openCards.length >= 2) {
+    if (openCards.length == 2) {
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
@@ -39,15 +39,15 @@ cards.forEach(function(card) {
           openCards.length = 0; //empties openCards array
           openCards = [];
       }, 800);
-    }
+    };
 
 // check if cards match ->
-    if (openCards[0].dataset.card === openCards[1].dataset.card) {
+    if (openCards[0].innerHTML === openCards[1].innerHTML) {
       matchedCards.push(card);
-      openCards.forEach(function(card)) {
-      card.classList.add('match');
-      console.log('matched Cards:', 'matchedCards.length'); // testing purposes
-      }
+      openCards.forEach(function(card) {
+        card.classList.add('match');
+        console.log('matched Cards:', 'matchedCards.length'); // testing purposes
+      })
     }
 
 
