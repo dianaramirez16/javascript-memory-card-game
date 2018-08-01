@@ -2,44 +2,62 @@
  * Create a list that holds all of your cards
  */
 
+const cardsList = [
+      "fa-leaf", "fa-leaf",
+      "fa-cube", "fa-cube",
+      "fa-anchor", "fa-anchor",
+      "fa-diamond", "fa-diamond",
+			"fa-bicycle", "fa-bicycle",
+      "fa-paper-plane-o", "fa-paper-plane-o",
+			"fa-bolt", "fa-bolt",
+			"fa-bomb", "fa-bomb",
+			];
+
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
-const openCards = [];
-const matchedCards = [];
+const stars = document.querySelector(".stars"); // stars keeping score
+const reset = document.querySelector(".fa-repeat") // restart game
+let openCards = [];
+let matchedCards = [];
 const listItems = document.querySelectorAll('cards.li');
 
-cards.forEach(function(card) {   // flips card on click
-  card.addEventListener('click', function(e) { //3 if loops are run
+// game functionality
+cards.forEach(function(card) {
+  card.addEventListener('click', function(e) { // 3 if loops are run upon click
 
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-      openCards.push(card); //pushes open cards to array
+      openCards.push(card); // pushes open cards to array
       card.classList.add('open', 'show');
-      console.log('Open Cards:', 'openCards.length');
+      console.log('Open Cards:', 'openCards.length'); // testing purposes
 
-
-    if (openCards.length >= 2) { // turn card over if no match
+// turn card over if no match ->
+    if (openCards.length >= 2) {
       setTimeout(function() {
         openCards.forEach(function(card) {
           card.classList.remove('open','show');
-
         });
+
           openCards.length = 0; //empties openCards array
           openCards = [];
       }, 800);
     }
 
+// check if cards match ->
+    if (openCards[0].dataset.card === openCards[1].dataset.card) {
+      matchedCards.push(card);
+      openCards.forEach(function(card)) {
+      card.classList.add('match');
+      console.log('matched Cards:', 'matchedCards.length'); // testing purposes
+      }
+    }
 
+
+    });
   });
 });
 
 
 //check if cards match
- if (card.classList.contains('open') && card.classList.contains('show')  && !card.classList.contains('match'))
-    openCards = [];
-    const a = openCards.lastIndexOf('');
-    document.getElementById('.card').innerHTML = "These cards are a match at: " + (a);
-    card.classList.add('match');
-    console.log('these cards are a match!');
-});
+ /* */
 
 
 
