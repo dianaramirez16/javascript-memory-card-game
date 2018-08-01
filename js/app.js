@@ -46,9 +46,12 @@ cards.forEach(function(card) {
       matchedCards.push(card);
       openCards.forEach(function(card) {
         card.classList.add('match');
+        card.classList.remove('open','show');
+        console.log('Open Cards:', 'openCards.length'); // testing purposes
         console.log('matched Cards:', 'matchedCards.length'); // testing purposes
+        openCards = [];
       })
-    }
+    
 
 
     });
