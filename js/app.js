@@ -25,43 +25,42 @@ let matchedCards = [];
 
 
 cards.forEach(function(card) {
-  card.addEventListener('click', function(e) { // 3 if loops are run upon click
+  card.addEventListener('click', function(e) { // 2 if loops are run upon click
 
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-      openCards.push(card); // pushes open cards to array
-      card.classList.add('open', 'show');
-      console.log('Open Cards:', 'openCards.length'); // testing purposes
+      openCards.push(card); // pushes open card to array
+        card.classList.add('open', 'show');
 
 // turn card over if no match ->
 
     if (openCards.length == 2) {
-      setTimeout(function() {
-        openCards.forEach(function(card) {
-          card.classList.remove('open','show');
+        setTimeout(function() {
+            openCards.forEach(function(card) {
+                card.classList.remove('open','show');
+                openCards.length = 0; //empties openCards array
+                openCards = [];
+            }, 800)
         });
+    }
+ // check if cards match -------------------------------------------------------->
 
-          openCards.length = 0; //empties openCards array
-          openCards = [];
-      }, 800);
-    };
+    if (openCards[0].dataset.card === openCards[1].dataset.card) {
+        matchedCards.push(card);
+            openCards.forEach(function(card) {
+                card.classList.add('match');
+                card.classList.remove('open','show');
+                openCards = [];
+            });
 
-/* // check if cards match -------------------------------------------------------->
+            if(matchedCards.length == 16) {
+                endGame(); // create this function-----------------------
+            }
+    }
 
-    if (openCards[0].innerHTML === openCards[1].innerHTML) {
-      matchedCards.push(card);
-      openCards.forEach(function(card) {
-        card.classList.add('match');
-        card.classList.remove('open','show');
-        console.log('Open Cards:', 'openCards.length'); // testing purposes
-        console.log('matched Cards:', 'matchedCards.length'); // testing purposes
-        openCards = [];
-      })
-    } */
 
-      }
     });
-  });
-});
+ });
+
 
 
 
