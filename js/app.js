@@ -3,26 +3,21 @@
  */
 
 const cardsList = [
-      "fa-leaf", "fa-leaf",
-      "fa-cube", "fa-cube",
-      "fa-anchor", "fa-anchor",
-      "fa-diamond", "fa-diamond",
-			"fa-bicycle", "fa-bicycle",
-      "fa-paper-plane-o", "fa-paper-plane-o",
-			"fa-bolt", "fa-bolt",
-			"fa-bomb", "fa-bomb",
-			];
+    "fa-leaf", "fa-leaf",
+    "fa-cube", "fa-cube",
+    "fa-anchor", "fa-anchor",
+    "fa-diamond", "fa-diamond",
+	"fa-bicycle", "fa-bicycle",
+    "fa-paper-plane-o", "fa-paper-plane-o",
+	"fa-bolt", "fa-bolt",
+	"fa-bomb", "fa-bomb",
+	];
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector(".stars"); // stars keeping score
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
 let matchedCards = [];
-
-
-
-
-
 
 /*
  * Display the cards on the page
@@ -66,9 +61,6 @@ function shuffle(array) {
 
 
  // game functionality
-
-
-
  cards.forEach(function(card) {
    card.addEventListener('click', function(e) { // 2 if loops are run upon click
 
@@ -77,7 +69,6 @@ function shuffle(array) {
          card.classList.add('open', 'show');
 
  // turn card over if no match ->
-
      if (openCards.length == 2) {
          setTimeout(function() {
              openCards.forEach(function(card) {
@@ -87,8 +78,8 @@ function shuffle(array) {
              }, 800)
          });
      }
-  // check if cards match -------------------------------------------------------->
 
+ // check if cards match -------------------------------------------------------->
      if (openCards[0].dataset.card === openCards[1].dataset.card) {
          matchedCards.push(card);
          openCards.forEach(function(card) {
