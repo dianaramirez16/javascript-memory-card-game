@@ -20,47 +20,6 @@ let openCards = [];
 let matchedCards = [];
 
 
-// game functionality
-
-
-
-cards.forEach(function(card) {
-  card.addEventListener('click', function(e) { // 2 if loops are run upon click
-
-    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-      openCards.push(card); // pushes open card to array
-        card.classList.add('open', 'show');
-
-// turn card over if no match ->
-
-    if (openCards.length == 2) {
-        setTimeout(function() {
-            openCards.forEach(function(card) {
-                card.classList.remove('open','show');
-                openCards.length = 0; //empties openCards array
-                openCards = [];
-            }, 800)
-        });
-    }
- // check if cards match -------------------------------------------------------->
-
-    if (openCards[0].dataset.card === openCards[1].dataset.card) {
-        matchedCards.push(card);
-            openCards.forEach(function(card) {
-                card.classList.add('match');
-                card.classList.remove('open','show');
-                openCards = [];
-            });
-
-            if(matchedCards.length == 16) {
-                endGame(); // create this function-----------------------
-            }
-    }
-
-
-    });
- });
-
 
 
 
@@ -83,7 +42,6 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
@@ -98,17 +56,52 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+ // end Game
 
-/* counter script
- Counter: <input type="button" value="1" data-counter>
 
- <script>
-   document.addEventListener('click', function(event) {
+ // start Game
 
-     if (event.target.dataset.counter != undefined) { // if the attribute exists...
-       event.target.value++;
+
+
+
+
+ // game functionality
+
+
+
+ cards.forEach(function(card) {
+   card.addEventListener('click', function(e) { // 2 if loops are run upon click
+
+     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
+       openCards.push(card); // pushes open card to array
+         card.classList.add('open', 'show');
+
+ // turn card over if no match ->
+
+     if (openCards.length == 2) {
+         setTimeout(function() {
+             openCards.forEach(function(card) {
+                 card.classList.remove('open','show');
+                 openCards.length = 0; //empties openCards array
+                 openCards = [];
+             }, 800)
+         });
+     }
+  // check if cards match -------------------------------------------------------->
+
+     if (openCards[0].dataset.card === openCards[1].dataset.card) {
+         matchedCards.push(card);
+         openCards.forEach(function(card) {
+             card.classList.add('match');
+             card.classList.remove('open','show');
+             openCards = [];
+         });
+
+         if(matchedCards.length == 16) {
+             endGame(); // create this function-----------------------
+         }
      }
 
-   });
- </script>
-*/
+
+     });
+  });
