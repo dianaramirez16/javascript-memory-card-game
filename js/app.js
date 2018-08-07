@@ -14,7 +14,7 @@ const cardsList = [
 	];
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
-const stars = document.querySelector(".stars"); // stars keeping score
+const stars = document.querySelector("ul.stars li"); // selects first child star
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
 let matchedCards = [];
@@ -33,7 +33,7 @@ function shuffle(array) {
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+        currentIndex -=... 1;
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -67,11 +67,17 @@ function startGame () {
 // move counter
 function moveCounts(bool) {
     if(bool ===true) {
-
+        count++;
     }
     else if(bool===false) {
-
+        count--;
     }
+
+    //remove stars
+    document.querySelector('ul.stars').removeChild(stars[0])
+
+
+
 }
 
 
