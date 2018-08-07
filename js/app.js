@@ -18,6 +18,7 @@ const stars = document.querySelector(".stars"); // stars keeping score
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
 let matchedCards = [];
+let newCards = shuffle(cards)
 
 /*
  * Display the cards on the page
@@ -51,13 +52,27 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- // end Game
 
+
+ // end Game
+function endGame () {
+
+}
 
  // start Game
+function startGame () {
+    newCards[i].classList.remove('show', 'open', 'match')
+}
 
+// move counter
+function moveCounts(bool) {
+    if(bool ===true) {
 
+    }
+    else if(bool===false) {
 
+    }
+}
 
 
  // game functionality
@@ -80,13 +95,13 @@ function shuffle(array) {
      }
 
  // check if cards match -------------------------------------------------------->
-     if (openCards[0].dataset.card === openCards[1].dataset.card) {
-         matchedCards.push(card);
+     if (card[0].innerHTML === card[1].innerHTML) {
          openCards.forEach(function(card) {
-             card.classList.add('match');
-             card.classList.remove('open','show');
-             openCards = [];
-         });
+				card.classList.add("match");
+                card.classList.remove('open','show');
+                matchedCards.push(card);
+                openCards = [];
+            });
 
          if(matchedCards.length == 16) {
              endGame(); // create this function-----------------------
