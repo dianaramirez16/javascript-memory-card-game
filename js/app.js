@@ -65,6 +65,7 @@ function startGame () {
 }
 
 // move counter
+let count = 5
 function moveCounts(bool) {
     if(bool ===true) {
         count++;
