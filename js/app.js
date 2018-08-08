@@ -33,7 +33,7 @@ function shuffle(array) {
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -=... 1;
+        currentIndex -= 1;
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -84,26 +84,28 @@ function moveCounts(bool) {
 
  // game functionality
  cards.forEach(function(card) {
-   card.addEventListener('click', function(e) { // 2 if loops are run upon click
+     card.addEventListener('click', function(e) { // 2 if loops are run upon click
 
-     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-       openCards.push(card); // pushes open card to array
-         card.classList.add('open', 'show');
+         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
+            openCards.push(card); // pushes open card to array
+            card.classList.add('open', 'show');
+            console.log("openCards:", openCards);
 
  // turn card over if no match ->
-     if (openCards.length == 2) {
-         setTimeout(function() {
-             openCards.forEach(function(card) {
+        if (openCards.length == 2) {
+            setTimeout(function() {
+                openCards.forEach(function(card) {
                  card.classList.remove('open','show');
+             });
                  openCards.length = 0; //empties openCards array
                  openCards = [];
-             }, 800)
-         });
-     }
+             }, 1000);
+         };
+     });
 
  // check if cards match -------------------------------------------------------->
-     if (card[0].innerHTML === card[1].innerHTML) {
-         openCards.forEach(function(card) {
+        if (openCards[0].innerHTML === openCards[1].innerHTML) {
+            openCards.forEach(function(card) {
 				card.classList.add("match");
                 card.classList.remove('open','show');
                 matchedCards.push(card);
@@ -116,5 +118,4 @@ function moveCounts(bool) {
      }
 
 
-     });
-  });
+ });
