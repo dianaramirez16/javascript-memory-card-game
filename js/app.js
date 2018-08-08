@@ -13,8 +13,13 @@ const cardsList = [
 	"fa-bomb", "fa-bomb",
 	];
 
+function generateGrid(card) {
+    return `<li class="card"><i class="fa ${card}"></i></li>`;
+}
+const cardGrid =
+
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
-const stars = document.querySelector("ul.stars li"); // selects first child star
+const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
 let matchedCards = [];
@@ -104,18 +109,7 @@ function moveCounts(bool) {
      });
 
  // check if cards match -------------------------------------------------------->
-        if (openCards[0].innerHTML === openCards[1].innerHTML) {
-            openCards.forEach(function(card) {
-				card.classList.add("match");
-                card.classList.remove('open','show');
-                matchedCards.push(card);
-                openCards = [];
-            });
 
-         if(matchedCards.length == 16) {
-             endGame(); // create this function-----------------------
-         }
-     }
 
 
  });
