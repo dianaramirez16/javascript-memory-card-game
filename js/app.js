@@ -69,7 +69,7 @@ function startGame () {
     let cardHTML = cards.map(function(card) {
         return generateGrid(card);
     });
-    deck.innerHTML(cardHTML.join(''));
+    deck.innerHTML = (cardHTML.join(''));
     //newCards[i].classList.remove('show', 'open', 'match')
 }
 
