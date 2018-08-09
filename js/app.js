@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 
-const cardsList = [
+const cards = [
     "fa-leaf", "fa-leaf",
     "fa-cube", "fa-cube",
     "fa-anchor", "fa-anchor",
@@ -17,7 +17,7 @@ function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
 
-const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
+const allCards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat") // restart game
 let openCards = [];
@@ -94,7 +94,7 @@ function moveCounts(bool) {
 
 
  // game functionality
- cards.forEach(function(card) {
+ allCards.forEach(function(card) {
      card.addEventListener('click', function(e) { // 2 if loops are run upon click
 
          if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
