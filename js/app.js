@@ -66,7 +66,7 @@ function endGame () {
  // start Game
 function startGame () {
     let deck = document.querySelector('.deck');
-    let cardHTML = cards.map(function(card) {
+    let cardHTML = shuffle(cards).map(function(card) {
         return generateGrid(card);
     });
     deck.innerHTML = (cardHTML.join(''));
