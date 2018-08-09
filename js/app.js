@@ -16,7 +16,6 @@ const cardsList = [
 function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
-const cardGrid =
 
 const cards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
@@ -66,8 +65,15 @@ function endGame () {
 
  // start Game
 function startGame () {
-    newCards[i].classList.remove('show', 'open', 'match')
+    let deck = document.querySelector('.deck');
+    let cardHTML = cards.map(function(card) {
+        return generateGrid(card);
+    });
+    deck.innerHTML(cardHTML.join(''));
+    //newCards[i].classList.remove('show', 'open', 'match')
 }
+
+startGame();
 
 // move counter
 let count = 5
@@ -94,7 +100,7 @@ function moveCounts(bool) {
          if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
             openCards.push(card); // pushes open card to array
             card.classList.add('open', 'show');
-            console.log("openCards:", openCards);
+            console.log("Open Cards:", openCards.length);
 
  // turn card over if no match ->
         if (openCards.length == 2) {
