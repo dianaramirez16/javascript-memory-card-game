@@ -1,6 +1,3 @@
-/*
- * Create a list that holds all of your cards
- */
 
 const cards = [
     "fa-leaf", "fa-leaf",
@@ -19,10 +16,10 @@ function generateGrid(card) {
 
 const allCards = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
-const reset = document.querySelector(".fa-repeat") // restart game
+const reset = document.querySelector(".fa-repeat"); // restart game
 let openCards = [];
 let matchedCards = [];
-let newCards = shuffle(cards)
+let newCards = shuffle(cards);
 
 /*
  * Display the cards on the page
@@ -76,7 +73,7 @@ function startGame () {
 startGame();
 
 // move counter
-let count = 5
+let count = 5;
 function moveCounts(bool) {
     if(bool ===true) {
         count++;
@@ -85,7 +82,7 @@ function moveCounts(bool) {
         count--;
     }
     //remove stars function is below
-    document.querySelector('ul.stars').removeChild(stars[0])
+    document.querySelector('ul.stars').removeChild(stars[0]);
 
 
 
@@ -94,12 +91,14 @@ function moveCounts(bool) {
 
  // game functionality code starts here
  allCards.forEach(function(card) {
-     card.addEventListener('click', function(e) { // 2 if loops are run upon click
+     card.addEventListener('click', function(e) {
 
-         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match'))
-            openCards.push(card); // pushes open card to array
-            card.classList.add('open', 'show');
-            console.log("Open Cards:", openCards.length);
+         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+             openCards.push(card); // pushes card to openCards array
+             card.classList.add('open', 'show');
+             console.log("Open Cards:", openCards.length);
+         }
+
 
  // turn card over if no match ->
         if (openCards.length == 2) {
@@ -109,12 +108,12 @@ function moveCounts(bool) {
              });
                  openCards.length = 0; //empties openCards array
                  openCards = [];
-             }, 1000);
+             }, 600);
          }
+
+
      });
 
  // check if cards match -------------------------------------------------------->
-
-
 
  });
