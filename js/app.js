@@ -84,8 +84,7 @@ function moveCounts(bool) {
     else if(bool===false) {
         count--;
     }
-
-    //remove stars
+    //remove stars function is below
     document.querySelector('ul.stars').removeChild(stars[0])
 
 
@@ -93,7 +92,7 @@ function moveCounts(bool) {
 }
 
 
- // game functionality
+ // game functionality code starts here
  allCards.forEach(function(card) {
      card.addEventListener('click', function(e) { // 2 if loops are run upon click
 
@@ -111,7 +110,7 @@ function moveCounts(bool) {
                  openCards.length = 0; //empties openCards array
                  openCards = [];
              }, 1000);
-         };
+         }
      });
 
  // check if cards match -------------------------------------------------------->
