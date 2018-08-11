@@ -15,12 +15,27 @@ let openCards = [];
 let matchedCards = [];
 let newCards = shuffle(cards);
 
-// function that creates grid programmatically
+//_________LIST OF VARIABLES_____________\\
+
+const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
+const stars = document.querySelector("ul.stars li"); // selects all stars
+const reset = document.querySelector(".fa-repeat"); // restart game
+const deck = document.querySelector('.deck');
+
+
+
+//________//_______FUNCTIONS_______\\__________\\
+
+
+
+//_______________GRID IS CREATED THROUGH THIS FX________________\\
+
 function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+//_______Shuffle function from http://stackoverflow.com/a/2450976________\\
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -34,33 +49,15 @@ function shuffle(array) {
     return array;
 }
 
-// list of variables
-const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
-const stars = document.querySelector("ul.stars li"); // selects all stars
-const reset = document.querySelector(".fa-repeat"); // restart game
-const deck = document.querySelector('.deck');
 
 
 
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
-
- // end Game
+//_______________END GAME________________\\
 function endGame () {
 
 }
 
- // start Game
+//_______________START GAME________________\\
 function startGame () {
     const deck = document.querySelector(".deck");
     let cardHTML = shuffle(cards).map(function(card) {
@@ -75,7 +72,7 @@ startGame();
 
 
 
-// move counter
+//______________MOVE COUNTER________________\\
 let count = 5;
 function moveCounts(bool) {
     if(bool ===true) {
@@ -92,7 +89,7 @@ function moveCounts(bool) {
 }
 
 
- // game functionality code starts here
+ //_______________GAME FUNCTIONALITY________________\\
 
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
@@ -101,3 +98,21 @@ function moveCounts(bool) {
          clickTarget.classList.toggle('show');
      }
  })
+
+
+
+
+
+
+
+
+ /*
+  * set up the event listener for a card. If a card is clicked:
+  *  - display the card's symbol (put this functionality in another function that you call from this one)
+  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+  *  - if the list already has another card, check to see if the two cards match
+  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+  */
