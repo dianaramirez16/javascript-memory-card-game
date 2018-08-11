@@ -93,7 +93,12 @@ function moveCounts(bool) {
 
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
-     if (clickTarget.classList.contains('card') && openCards.length < 2) {
+
+     if (
+         clickTarget.classList.contains('card') && 
+         openCards.length < 2 && // prevents more than 3 cards firing event
+         !openCards.includes(clickTarget) // prevents double click on one card
+        ) {
 
          toggleCard(clickTarget); //open card
          openCards.push(clickTarget); // send to opencards array
@@ -120,15 +125,17 @@ function toggleCard(clickTarget) {
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
-            openCards[0].className.toggle('match');
-            openCards[1].className.toggle('match');
+
+            openCards[0].classList.toggle('match');
+            openCards[1].classList.toggle('match');
             openCards = [];
 
     } else {
-        console.log('not a match!');
-        openCards = [];
-        toggleCard(openCards[0]);
-        toggleCard(openCards[1]);
+        setTimeout (() => {
+            toggleCard(openCards[0]);
+            toggleCard(openCards[1]);
+            openCards = [];
+        }, 1000);
     }
 }
 
