@@ -14,9 +14,10 @@ function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
 
-const allCards = document.querySelectorAll('.card'); // creates nodelist of all cards
+const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat"); // restart game
+const deck = document.querySelector('.deck');
 let openCards = [];
 let matchedCards = [];
 let newCards = shuffle(cards);
@@ -62,15 +63,18 @@ function endGame () {
 
  // start Game
 function startGame () {
-    let deck = document.querySelector('.deck');
+    const deck = document.querySelector(".deck");
     let cardHTML = shuffle(cards).map(function(card) {
         return generateGrid(card);
     });
     deck.innerHTML = (cardHTML.join(''));
     //newCards[i].classList.remove('show', 'open', 'match')
+
 }
 
 startGame();
+
+
 
 // move counter
 let count = 5;
@@ -82,7 +86,7 @@ function moveCounts(bool) {
         count--;
     }
     //remove stars function is below
-    document.querySelector('ul.stars').removeChild(stars[0]);
+    //document.querySelector('ul.stars').removeChild(stars[0]);
 
 
 
@@ -90,30 +94,10 @@ function moveCounts(bool) {
 
 
  // game functionality code starts here
- allCards.forEach(function(card) {
-     card.addEventListener('click', function(e) {
-
-         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
-             openCards.push(card); // pushes card to openCards array
-             card.classList.add('open', 'show');
-             console.log("Open Cards:", openCards.length);
-         }
-
-
- // turn card over if no match ->
-        if (openCards.length == 2) {
-            setTimeout(function() {
-                openCards.forEach(function(card) {
-                 card.classList.remove('open','show');
-             });
-                 openCards.length = 0; //empties openCards array
-                 openCards = [];
-             }, 600);
-         }
-
-
-     });
-
- // check if cards match -------------------------------------------------------->
-
- });
+ deck.addEventListener('click', event => {
+     const clickTarget = event.target;
+     if (clickTarget.classList.contains('card')) {
+         clickTarget.classList.toggle('open');
+         clickTarget.classList.toggle('show');
+     }
+ })
