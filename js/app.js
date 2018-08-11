@@ -1,5 +1,7 @@
 //list of all functions, variables, and arrays being called in the code later on
 
+//________//_______ARRAYS_______\\__________\\
+
 const cards = [
     "fa-leaf", "fa-leaf",
     "fa-cube", "fa-cube",
@@ -10,12 +12,10 @@ const cards = [
 	"fa-bolt", "fa-bolt",
 	"fa-bomb", "fa-bomb",
 	];
-
 let openCards = [];
 let matchedCards = [];
-let newCards = shuffle(cards);
 
-//_________LIST OF VARIABLES_____________\\
+//_____/____LIST OF VARIABLES_____\______\\
 
 const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
@@ -28,7 +28,7 @@ const deck = document.querySelector('.deck');
 
 
 
-//_______________GRID IS CREATED THROUGH THIS FX________________\\
+// grid is created
 
 function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
@@ -64,7 +64,7 @@ function startGame () {
         return generateGrid(card);
     });
     deck.innerHTML = (cardHTML.join(''));
-    //newCards[i].classList.remove('show', 'open', 'match')
+
 
 }
 
@@ -94,11 +94,16 @@ function moveCounts(bool) {
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
      if (clickTarget.classList.contains('card')) {
-         clickTarget.classList.toggle('open');
-         clickTarget.classList.toggle('show');
+         toggleCard(clickTarget);
      }
  })
 
+
+// toggles the card class on/off
+function toggleCard(clickTarget) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
+}
 
 
 
