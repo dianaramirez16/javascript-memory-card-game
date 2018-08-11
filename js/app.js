@@ -1,3 +1,4 @@
+//list of all functions, variables, and arrays being called in the code later on
 
 const cards = [
     "fa-leaf", "fa-leaf",
@@ -10,24 +11,14 @@ const cards = [
 	"fa-bomb", "fa-bomb",
 	];
 
-function generateGrid(card) {
-    return `<li class="card"><i class="fa ${card}"></i></li>`;
-}
-
-const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
-const stars = document.querySelector("ul.stars li"); // selects all stars
-const reset = document.querySelector(".fa-repeat"); // restart game
-const deck = document.querySelector('.deck');
 let openCards = [];
 let matchedCards = [];
 let newCards = shuffle(cards);
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+// function that creates grid programmatically
+function generateGrid(card) {
+    return `<li class="card"><i class="fa ${card}"></i></li>`;
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -42,6 +33,20 @@ function shuffle(array) {
     }
     return array;
 }
+
+// list of variables
+const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
+const stars = document.querySelector("ul.stars li"); // selects all stars
+const reset = document.querySelector(".fa-repeat"); // restart game
+const deck = document.querySelector('.deck');
+
+
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
 
 
 /*
@@ -94,6 +99,7 @@ function moveCounts(bool) {
 
 
  // game functionality code starts here
+
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
      if (clickTarget.classList.contains('card')) {
