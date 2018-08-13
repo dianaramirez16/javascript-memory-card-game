@@ -110,8 +110,8 @@ function evaluateClick(clickTarget) {
             console.log("openCards:", openCards.length);
 
          if (openCards.length === 2) {
-            checkIfCardsMatch(clickTarget);
-            matchedCards.push(clickTarget); //send to match array, check if works
+            checkIfCardsMatch();
+
             console.log("matchedCards:", matchedCards.length);
             openCards = [];
          }
@@ -130,18 +130,13 @@ function toggleCard(clickTarget) {
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
-            openCards[0].classList.toggle('match');
-            openCards[1].classList.toggle('match');
-
-            openCards = [];
+            matchedCards.push(clickTarget); //send to match array, check if works
             console.log('cards match!');
 
     } else {
         setTimeout (() => {
             console.log('not a match!');
-            openCards = [];
-            toggleCard(openCards[0]); //closes card
-            toggleCard(openCards[1]); //closes card
+
 
         }, 500);
     }
