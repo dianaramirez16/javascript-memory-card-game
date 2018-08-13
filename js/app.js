@@ -130,12 +130,14 @@ function toggleCard(clickTarget) {
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
-            matchedCards.push(clickTarget); //send to match array, check if works
+            matchedCards.push(openCards[0]);
+            matchedCards.push(openCards[1]); //send to matched cards array
             console.log('cards match!');
 
     } else {
         setTimeout (() => {
             console.log('not a match!');
+
 
 
         }, 500);
