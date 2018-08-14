@@ -19,7 +19,7 @@ let matchedCards = [];
 
 const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
-const reset = document.querySelector(".fa-repeat"); // restart game
+const reset = document.querySelector(".fa-repeat"); // restart button
 const deck = document.querySelector('.deck');
 
 
@@ -130,8 +130,13 @@ function toggleCard(clickTarget) {
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
+            openCards[0].classList.toggle('match');
+            openCards[1].classList.toggle('match');
+
             matchedCards.push(openCards[0]);
             matchedCards.push(openCards[1]); //send to matched cards array
+
+            openCards = [];
             console.log('cards match!');
 
     } else {
@@ -143,6 +148,8 @@ function checkIfCardsMatch() {
         }, 500);
     }
 }
+
+// if card is sent to matchedCards, toggle 'match' class
 
 
 
