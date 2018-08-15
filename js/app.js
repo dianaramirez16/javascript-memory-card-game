@@ -94,6 +94,7 @@ function moveCounts(bool) {
 function evaluateClick(clickTarget) {
     return (
         clickTarget.classList.contains('card') &&
+        !clickTarget.classList.contains('open') && // prevents clicking open card
         !clickTarget.classList.contains('match') && // prevents clicking on matched cards
         openCards.length < 2 && // prevents more than 3 cards firing event
         !openCards.includes(clickTarget) // prevents double click on one card
@@ -106,7 +107,7 @@ function evaluateClick(clickTarget) {
 
      if (evaluateClick(clickTarget)) {
             toggleCard(clickTarget); //opens card
-            openCards.push(clickTarget); // send to opencards array
+            openCards.push(clickTarget); // send to openCards array
             console.log("openCards:", openCards.length);
 
          if (openCards.length === 2) {
@@ -125,13 +126,16 @@ function toggleCard(clickTarget) {
     clickTarget.classList.toggle('show');
 }
 
+
+
+
 // checks for match
 
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
             openCards[0].classList.toggle('match');
-            openCards[1].classList.toggle('match');
+            openCards[1].classList.toggle('match'); // turns card green/match
 
             matchedCards.push(openCards[0]);
             matchedCards.push(openCards[1]); //send to matched cards array
@@ -142,7 +146,6 @@ function checkIfCardsMatch() {
     } else {
         setTimeout (() => {
             console.log('not a match!');
-
 
 
         }, 500);
