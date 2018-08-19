@@ -108,13 +108,13 @@ function evaluateClick(clickTarget) {
      if (evaluateClick(clickTarget)) {
             toggleCard(clickTarget); //opens card
             openCards.push(clickTarget); // send to openCards array
-            console.log("openCards:", openCards.length);
+
 
          if (openCards.length === 2) {
             checkIfCardsMatch();
 
-            console.log("matchedCards:", matchedCards.length);
-            openCards = [];
+
+            // openCards = [];
          }
      }
  })
@@ -134,8 +134,9 @@ function toggleCard(clickTarget) {
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
-            openCards[0].classList.toggle('match');
-            openCards[1].classList.toggle('match'); // turns card green/match
+            openCards[0].classList.toggle('match', );
+            openCards[1].classList.toggle('match', );
+            // turns card green/match
 
             matchedCards.push(openCards[0]);
             matchedCards.push(openCards[1]); //send to matched cards array
@@ -144,11 +145,16 @@ function checkIfCardsMatch() {
             console.log('cards match!');
 
     } else {
-        setTimeout (() => {
-            console.log('not a match!');
+        setTimeout(function() {
+            openCards.forEach(function(card) {
+                card.classList.remove('open','show');
+             });
 
+            console.log("openCards:", openCards.length);
+            openCards.length = 0; //empties openCards array
+            // openCards = [];
+        }, 1000);
 
-        }, 500);
     }
 }
 
