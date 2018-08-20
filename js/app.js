@@ -168,20 +168,16 @@ function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
             openCards[0].classList.toggle('match', );
-            openCards[1].classList.toggle('match', ); // turns card green/match
-
+            openCards[1].classList.toggle('match', ); // card matched
             matchedCards.push(openCards[0]);
             matchedCards.push(openCards[1]); //send to matched cards array
-
             openCards = [];
-
 
     } else {
         setTimeout(function() {
             openCards.forEach(function(card) { //flips over card
                 card.classList.remove('open','show');
              });
-
 
             openCards.length = 0; //empties openCards array
 
@@ -191,7 +187,7 @@ function checkIfCardsMatch() {
 }
 
 
-function startClock() { //prints secondss in dev console
+function startClock() { //prints seconds in dev console
     //time = 0;
     clockId = setInterval(() => {
         time++;
@@ -217,7 +213,8 @@ function displayTime() { //creates timer in score panel
 
 function stopClock() {
     clearInterval(clockId);
-}
+    clockOff = true;
+};
 
  /*
   * set up the event listener for a card. If a card is clicked:
