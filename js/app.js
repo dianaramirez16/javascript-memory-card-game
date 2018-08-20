@@ -15,7 +15,7 @@ const cards = [
 let openCards = [];
 let matchedCards = [];
 let moves = 0;
-
+let clockOff = true;
 
 
 
@@ -184,11 +184,15 @@ function checkIfCardsMatch() {
 
 
 function startClock() {
-    let clockId = setTimeout(() => {
-        console.log('1 second has passed');
+    time = 0;
+    let clockId = setInterval(() => {
+        time++;
+        console.log(time);
     }, 1000);
 }
 startClock();
+
+
 
 
  /*
