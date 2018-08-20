@@ -16,6 +16,9 @@ let openCards = [];
 let matchedCards = [];
 let moves = 0;
 
+
+
+
 //_____/____LIST OF VARIABLES_____\______\\
 
 const cardsList = document.querySelectorAll('.card'); // nodelist of cards
@@ -29,11 +32,16 @@ const deck = document.querySelector('.deck');
 
 
 
+
+
 // grid is created
 
 function generateGrid(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
+
+
+
 
 //_______Shuffle function from http://stackoverflow.com/a/2450976________\\
 
@@ -53,10 +61,13 @@ function shuffle(array) {
 
 
 
+
 //_______________END GAME________________\\
 function endGame () {
 
 }
+
+
 
 //_______________START GAME________________\\
 function startGame () {
@@ -66,11 +77,11 @@ function startGame () {
     });
     deck.innerHTML = (cardHTML.join('')); // generates grid
 
-
-
 }
-
 startGame();
+
+
+
 
 //______________MOVE movesER________________\\
 function addMoves() {
@@ -79,11 +90,15 @@ function addMoves() {
     movesText.innerHTML = moves;
 }
 
+
+
 function checkScore() {
     if (moves === 8 || moves === 15) {
         hideStar();
     }
 }
+
+
 
  function hideStar() { // applies hide property to star
     const starList = document.querySelectorAll('.stars li');
@@ -94,7 +109,6 @@ function checkScore() {
         }
     }
 }
-
 
 
 
@@ -143,8 +157,7 @@ function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
             openCards[0].classList.toggle('match', );
-            openCards[1].classList.toggle('match', );
-            // turns card green/match
+            openCards[1].classList.toggle('match', ); // turns card green/match
 
             matchedCards.push(openCards[0]);
             matchedCards.push(openCards[1]); //send to matched cards array
