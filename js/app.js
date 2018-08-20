@@ -143,6 +143,9 @@ function evaluateClick(clickTarget) {
  })
 
 
+
+
+
 // toggles the card class on/off
 function toggleCard(clickTarget) {
     clickTarget.classList.toggle('open');
@@ -180,8 +183,12 @@ function checkIfCardsMatch() {
 }
 
 
-
-
+function startClock() {
+    let clockId = setTimeout(() => {
+        console.log('1 second has passed');
+    }, 1000);
+}
+startClock();
 
 
  /*
