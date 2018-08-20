@@ -76,7 +76,9 @@ function startGame () {
         return generateGrid(card);
     });
     deck.innerHTML = (cardHTML.join('')); // generates grid
-
+    // restart clock
+    // restart moves counter
+    // call new shuffled deck
 }
 startGame();
 
