@@ -17,7 +17,7 @@ let matchedCards = [];
 let moves = 0;
 let clockOff = true;
 let time = 0 ;
-
+let clockId;
 
 //_____/____LIST OF VARIABLES_____\______\\
 
@@ -191,10 +191,11 @@ function checkIfCardsMatch() {
 }
 
 
-function startClock() { //prints seconds in dev console
-    time = 0;
-    let clockId = setInterval(() => {
+function startClock() { //prints secondss in dev console
+    //time = 0;
+    clockId = setInterval(() => {
         time++;
+        displayTime();
         console.log(time);
     }, 1000);
 }
@@ -204,8 +205,8 @@ function startClock() { //prints seconds in dev console
 function displayTime() { //creates timer in score panel
     const clock = document.querySelector('.clock');
     console.log(clock);
-    clock.innerHTML = time;
-    if (second <10) {
+    //clock.innerHTML = time;
+    if (seconds < 10) {
         clock.innerHTML = `${minutes}:0${seconds}`;
     } else {
         clock.innterHTML = `${minutes}:${seconds}`;
