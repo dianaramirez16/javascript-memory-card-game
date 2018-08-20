@@ -14,6 +14,7 @@ const cards = [
 	];
 let openCards = [];
 let matchedCards = [];
+let count = 0;
 
 //_____/____LIST OF VARIABLES_____\______\\
 
@@ -73,14 +74,13 @@ startGame();
 
 
 //______________MOVE COUNTER________________\\
-let count = 5;
-function moveCounts(bool) {
-    if(bool ===true) {
-        count++;
-    }
-    else if(bool===false) {
-        count--;
-    }
+function addCount() {
+    count++;
+    const movesText = document.querySelector('.moves');
+    movesText.innerHTML = moves;
+}
+
+
     //remove stars function is below
     //document.querySelector('ul.stars').removeChild(stars[0]);
 
@@ -112,9 +112,7 @@ function evaluateClick(clickTarget) {
 
          if (openCards.length === 2) {
             checkIfCardsMatch();
-
-
-            // openCards = [];
+            addCount();
          }
      }
  })
@@ -129,8 +127,7 @@ function toggleCard(clickTarget) {
 
 
 
-// checks for match
-
+// fx checks for match
 function checkIfCardsMatch() {
     if (openCards[0].firstElementChild.className ===
         openCards[1].firstElementChild.className) {
@@ -142,23 +139,22 @@ function checkIfCardsMatch() {
             matchedCards.push(openCards[1]); //send to matched cards array
 
             openCards = [];
-            console.log('cards match!');
+
 
     } else {
         setTimeout(function() {
-            openCards.forEach(function(card) {
+            openCards.forEach(function(card) { //flips over card
                 card.classList.remove('open','show');
              });
 
-            console.log("openCards:", openCards.length);
+
             openCards.length = 0; //empties openCards array
-            // openCards = [];
-        }, 1000);
+
+        }, 600);
 
     }
 }
 
-// if card is sent to matchedCards, toggle 'match' class
 
 
 
