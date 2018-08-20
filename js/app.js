@@ -205,8 +205,18 @@ function displayTime() { //creates timer in score panel
     const clock = document.querySelector('.clock');
     console.log(clock);
     clock.innerHTML = time;
+    if (second <10) {
+        clock.innerHTML = `${minutes}:0${seconds}`;
+    } else {
+        clock.innterHTML = `${minutes}:${seconds}`;
+    }
 }
 
+
+
+function stopClock() {
+    clearInterval(clockId);
+}
 
  /*
   * set up the event listener for a card. If a card is clicked:
