@@ -71,8 +71,6 @@ function startGame () {
 
 startGame();
 
-
-
 //______________MOVE COUNTER________________\\
 function addCount() {
     count++;
@@ -80,6 +78,12 @@ function addCount() {
     movesText.innerHTML = moves;
 }
 
+function checkScore() {
+    if (moves === 16 || moves === 24
+    ) {
+        removeStar();
+    }
+}
 
     //remove stars function is below
     //document.querySelector('ul.stars').removeChild(stars[0]);
@@ -154,8 +158,6 @@ function checkIfCardsMatch() {
 
     }
 }
-
-
 
 
 
