@@ -85,8 +85,15 @@ function checkScore() {
     }
 }
 
-    //remove stars function is below
-    //document.querySelector('ul.stars').removeChild(stars[0]);
+function hideStar() { // applies hide property to star
+    const starList = document.querySelectorAll('.stars li');
+    for (star of starList) {
+        star.style.display = 'none';
+    }
+}
+hideStar();
+
+
 
 
 
