@@ -189,7 +189,7 @@ function checkIfCardsMatch() {
 }
 
 
-function startClock() {
+function startClock() { //prints seconds in dev console
     time = 0;
     let clockId = setInterval(() => {
         time++;
@@ -198,7 +198,10 @@ function startClock() {
 }
 startClock();
 
-function displayTime() {
+
+
+
+function displayTime() { //creates timer in score panel
     const clock = document.querySelector('.clock');
     console.log(clock);
     clock.innerHTML = time;
