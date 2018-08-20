@@ -16,7 +16,7 @@ let openCards = [];
 let matchedCards = [];
 let moves = 0;
 let clockOff = true;
-
+let time = 0;
 
 
 //_____/____LIST OF VARIABLES_____\______\\
@@ -130,6 +130,10 @@ function evaluateClick(clickTarget) {
      const clickTarget = event.target;
 
      if (evaluateClick(clickTarget)) {
+            if (clockOff) {
+                startClock();
+                clockOff = false;
+            }
             toggleCard(clickTarget); //opens card
             openCards.push(clickTarget); // send to openCards array
 
