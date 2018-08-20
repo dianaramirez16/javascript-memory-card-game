@@ -14,11 +14,11 @@ const cards = [
 	];
 let openCards = [];
 let matchedCards = [];
-let count = 0;
+let moves = 0;
 
 //_____/____LIST OF VARIABLES_____\______\\
 
-const cardsList = document.querySelectorAll('.card'); // creates nodelist of all cards
+const cardsList = document.querySelectorAll('.card'); // nodelist of cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat"); // restart button
 const deck = document.querySelector('.deck');
@@ -60,44 +60,43 @@ function endGame () {
 
 //_______________START GAME________________\\
 function startGame () {
-    const deck = document.querySelector(".deck");
+    const deck = document.querySelector(".deck"); //shuffles deck
     let cardHTML = shuffle(cards).map(function(card) {
         return generateGrid(card);
     });
-    deck.innerHTML = (cardHTML.join(''));
+    deck.innerHTML = (cardHTML.join('')); // generates grid
+
 
 
 }
 
 startGame();
 
-//______________MOVE COUNTER________________\\
-function addCount() {
-    count++;
+//______________MOVE movesER________________\\
+function addMoves() {
+    moves++;
     const movesText = document.querySelector('.moves');
     movesText.innerHTML = moves;
 }
 
 function checkScore() {
-    if (moves === 16 || moves === 24
-    ) {
-        removeStar();
+    if (moves === 8 || moves === 15) {
+        hideStar();
     }
 }
 
-function hideStar() { // applies hide property to star
+ function hideStar() { // applies hide property to star
     const starList = document.querySelectorAll('.stars li');
     for (star of starList) {
-        star.style.display = 'none';
+        if (star.style.display !== 'none') ; {
+            star.style.display = 'none';
+            break;
+        }
     }
 }
-hideStar();
 
 
 
-
-
-}
 
 
  //_______________GAME FUNCTIONALITY________________\\
@@ -123,7 +122,8 @@ function evaluateClick(clickTarget) {
 
          if (openCards.length === 2) {
             checkIfCardsMatch();
-            addCount();
+            addMoves();
+            checkScore();
          }
      }
  })
@@ -178,6 +178,6 @@ function checkIfCardsMatch() {
   *  - if the list already has another card, check to see if the two cards match
   *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
   *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
-  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+  *    + increment the move moveser and display it on the page (put this functionality in another function that you call from this one)
   *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
   */
