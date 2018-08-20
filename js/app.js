@@ -196,7 +196,11 @@ function startClock() {
 }
 startClock();
 
-
+function displayTime() {
+    const clock = document.querySelector('.clock');
+    console.log(clock);
+    clock.innerHTML = time;
+}
 
 
  /*
