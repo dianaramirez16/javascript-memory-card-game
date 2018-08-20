@@ -25,6 +25,8 @@ const cardsList = document.querySelectorAll('.card'); // nodelist of cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat"); // restart button
 const deck = document.querySelector('.deck');
+const minutes = time/60;
+const seconds = time % 60;
 
 
 
@@ -196,8 +198,6 @@ function startClock() { //prints seconds in dev console
         console.log(time);
     }, 1000);
 }
-startClock();
-
 
 
 
