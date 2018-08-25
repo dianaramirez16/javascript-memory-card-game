@@ -97,8 +97,9 @@ function addMoves() {
 
 
 function checkScore() {
-    if (moves === 8 || moves === 15) {
+    if (moves === 2 || moves === 3 ) {
         hideStar();
+        console.log('test checkscore');
     }
 }
 
@@ -109,6 +110,7 @@ function checkScore() {
     for (star of starList) {
         if (star.style.display !== 'none') ; {
             star.style.display = 'none';
+            console.log('test hidestar');
             break;
         }
     }
@@ -193,25 +195,30 @@ function startClock() { //prints seconds in dev console
         time++;
         displayTime();
         console.log(time);
+
     }, 1000);
 }
 //startClock();
 
 
+
+
 function displayTime() { //creates timer in score panel
     const clock = document.querySelector('.clock');
-    console.log(clock);
-    //clock.innerHTML = time;
+
+    //console.log(clock);
+    clockText.innerHTML = time;
     if (seconds < 10) {
         clock.innerHTML = `${minutes}:0${seconds}`;
     } else {
         clock.innterHTML = `${minutes}:${seconds}`;
     }
+
 }
 
 
 
-function stopClock() {
+function stopClock() { //stops clock
     clearInterval(clockId);
     clockOff = true;
 };
