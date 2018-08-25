@@ -164,3 +164,7 @@ h1 {
     width: 60px;
     heights: 30px;
 }
+
+.hide {
+    display: none;
+}
