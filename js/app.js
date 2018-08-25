@@ -227,5 +227,22 @@ function toggleModal() {
 toggleModal() //opens modal
 toggleModal() //closes modal
 
+//modal tests
+
+time=121;
+displayTime();
+modes=16;
+checkScore();
+
+writeModalStats();
+toggleModal();
+
+function writeModalStats() {
+    const timeStat = document.querySelector('.modal_time');
+    const clockTime = document.querySelector('.clock').innerHTML;
+
+    timeStat.innerHTML = `Time = ${clockTime}`;
+}
+
 /*    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
   */
