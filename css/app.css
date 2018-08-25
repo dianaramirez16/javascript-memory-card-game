@@ -112,3 +112,24 @@ h1 {
     float: right;
     margin: 0 40px 0 0;
 }
+
+/* modal styles */
+
+.modal_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.438);
+}
+
+.modal_body {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    transform: translate(-50%, -70%);
+}

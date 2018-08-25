@@ -87,7 +87,7 @@ startGame();
 
 
 
-//______________MOVE movesER________________\\
+//______________MOVES ________________\\
 function addMoves() {
     moves++;
     const movesText = document.querySelector('.moves');
@@ -110,7 +110,6 @@ function checkScore() {
     for (star of starList) {
         if (star.style.display !== 'none') ; {
             star.style.display = 'none';
-            console.log('test hidestar');
             break;
         }
     }
