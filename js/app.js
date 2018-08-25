@@ -204,8 +204,8 @@ function startClock() { //prints seconds in dev console
 
 
 function displayTime() { //creates timer in score panel
-    const clock = document.querySelector('.clock');
-
+    const clockText = document.querySelector('.clock');
+    
     //console.log(clock);
     clockText.innerHTML = time;
     if (seconds < 10) {
