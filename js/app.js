@@ -240,9 +240,11 @@ toggleModal();
 function writeModalStats() {
     const timeStat = document.querySelector('.modal_time');
     const clockTime = document.querySelector('.clock').innerHTML;
+    const movesStat = document.querySelector('.modal_moves');
+    const starsStat = document.querySelector('.modal_stars');
+    const stars = getStars();
 
     timeStat.innerHTML = `Time = ${clockTime}`;
+    movesStat.innerHTML = `Moves = ${moves}`;
+    starsStat.innerHTML =  `Stars = ${stars}`;
 }
-
-/*    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
-  */
