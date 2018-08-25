@@ -154,3 +154,14 @@ h1 {
     padding-left: 1rem;
     border-bottom: 1px solid gray;
 }
+
+.modal_buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.modal_button {
+    width: 60px;
+    heights: 30px;
+}
