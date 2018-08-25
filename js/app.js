@@ -16,7 +16,7 @@ let openCards = [];
 let matchedCards = [];
 let moves = 0;
 let clockOff = true;
-let time = 0 ;
+let time = 0;
 let clockId;
 
 //_____/____LIST OF VARIABLES_____\______\\
@@ -25,8 +25,7 @@ const cardsList = document.querySelectorAll('.card'); // nodelist of cards
 const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat"); // restart button
 const deck = document.querySelector('.deck');
-const minutes = Math.floor(time/60);
-const seconds = time % 60;
+
 
 
 
@@ -66,7 +65,8 @@ function shuffle(array) {
 
 //_______________END GAME________________\\
 function endGame () {
-
+    //stop clock
+    //congrats message
 }
 
 
@@ -189,32 +189,27 @@ function checkIfCardsMatch() {
 }
 
 
-function startClock() { //prints seconds in dev console
-    //time = 0;
-    clockId = setInterval(() => {
-        time++;
-        displayTime();
-        console.log(time);
-
-    }, 1000);
-}
-//startClock();
-
-
-
-
 function displayTime() { //creates timer in score panel
-    const clockText = document.querySelector('.clock');
-    
-    //console.log(clock);
-    clockText.innerHTML = time;
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    const clock = document.querySelector('.clock');
+    clock.innerHTML = time;
     if (seconds < 10) {
         clock.innerHTML = `${minutes}:0${seconds}`;
     } else {
-        clock.innterHTML = `${minutes}:${seconds}`;
+        clock.innerHTML = `${minutes}:${seconds}`;
     }
-
 }
+
+
+
+function startClock() { //prints seconds in dev console
+    clockId = setInterval(() => {
+        time++;
+        displayTime();
+    }, 1000);
+}
+//startClock();
 
 
 
