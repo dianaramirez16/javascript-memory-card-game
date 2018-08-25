@@ -248,3 +248,24 @@ function writeModalStats() {
     movesStat.innerHTML = `Moves = ${moves}`;
     starsStat.innerHTML =  `Stars = ${stars}`;
 }
+
+function getStars() {
+    stars = document.querySelectorAll('.stars li');
+    starCount = 0;
+    for (star of stars) {
+        if (star.style.display !== 'none') {
+            starCount++;
+        }
+    }
+    console.log(starCount);
+    return starCount;
+}
+
+document.querySelector('.modal_cancel').addEventListener('click', () => {
+    toggleModal();
+});
+
+document.querySelector('modal_replay').addEventListener('click', () => {
+    console.log('replay');
+    //call reset fx
+});
