@@ -69,11 +69,19 @@ function resetGame () {
     time = 0;
     displayTime();
 }
-
+/*
 function resetMoves() {
     moves=0;
     document.querySelector(.'moves').innerHTML = moves;
 }
+
+function resetStars() {
+    stars=0;
+    const starList = document.querySelectorAll('.stars li');
+    for (star of starList) {
+        star.style.display = 'inline';
+    }
+} */
 
 
 
