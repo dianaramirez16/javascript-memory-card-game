@@ -22,7 +22,6 @@ let clockId;
 //_____/____LIST OF VARIABLES_____\______\\
 
 const cardsList = document.querySelectorAll('.card'); // nodelist of cards
-const stars = document.querySelector("ul.stars li"); // selects all stars
 const reset = document.querySelector(".fa-repeat"); // restart button
 const deck = document.querySelector('.deck');
 
@@ -97,7 +96,7 @@ function addMoves() {
 
 
 function checkScore() {
-    if (moves === 2 || moves === 3 ) {
+    if (moves === 18 || moves === 19 ) {
         hideStar();
         console.log('test checkscore');
     }
@@ -231,7 +230,7 @@ toggleModal() //closes modal
 
 time=121;
 displayTime();
-modes=16;
+moves=16;
 checkScore();
 
 writeModalStats();
@@ -265,7 +264,7 @@ document.querySelector('.modal_cancel').addEventListener('click', () => {
     toggleModal();
 });
 
-document.querySelector('modal_replay').addEventListener('click', () => {
+/*document.querySelector('modal_replay').addEventListener('click', () => {
     console.log('replay');
     //call reset fx
-});
+}); */

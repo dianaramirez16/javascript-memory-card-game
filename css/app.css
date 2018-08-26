@@ -127,6 +127,7 @@ h1 {
 .modal_body {
     position: relative;
     width: 400px;
+    height: auto;
     top: 50%;
     left: 50%;
     background: #ffffff;
@@ -155,14 +156,15 @@ h1 {
 }
 
 .modal_buttons {
+    border-top: 1px solid gray;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1rem;
 }
 
 .modal_button {
     width: 60px;
-    heights: 30px;
+    height: 30px;
 }
 
 .hide {
