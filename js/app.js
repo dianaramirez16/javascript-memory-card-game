@@ -62,10 +62,17 @@ function shuffle(array) {
 
 
 
-//_______________END GAME________________\\
-function endGame () {
-    //stop clock
-    //congrats message
+//_______________RESET GAME________________\\
+function resetGame () {
+    stopClock();
+    clockOff = true;
+    time = 0;
+    displayTime();
+}
+
+function resetMoves() {
+    moves=0;
+    document.querySelector(.'moves').innerHTML = moves;
 }
 
 
@@ -227,12 +234,12 @@ toggleModal() //opens modal
 toggleModal() //closes modal
 
 //modal tests
-
+/*
 time=121;
 displayTime();
 moves=16;
 checkScore();
-
+*/
 writeModalStats();
 toggleModal();
 
