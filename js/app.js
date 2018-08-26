@@ -96,7 +96,7 @@ function addMoves() {
 
 
 function checkScore() {
-    if (moves === 18 || moves === 19 ) {
+    if (moves === 8 || moves === 14 ) {
         hideStar();
         console.log('test checkscore');
     }
@@ -264,7 +264,7 @@ document.querySelector('.modal_cancel').addEventListener('click', () => {
     toggleModal();
 });
 
-/*document.querySelector('modal_replay').addEventListener('click', () => {
+document.querySelector('modal_replay').addEventListener('click', () => {
     console.log('replay');
     //call reset fx
-}); */
+});
