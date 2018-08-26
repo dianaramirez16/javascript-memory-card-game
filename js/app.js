@@ -63,7 +63,14 @@ function shuffle(array) {
 
 
 //_______________RESET GAME________________\\
-function resetGame () {
+function resetGame() {
+    resetClockAndTime();
+    resetMoves();
+    resetStars();
+    shuffleDeck();
+}
+
+function resetClockAndTime() {
     stopClock();
     clockOff = true;
     time = 0;
@@ -279,7 +286,8 @@ document.querySelector('.modal_cancel').addEventListener('click', () => {
     toggleModal();
 });
 
-document.querySelector('modal_replay').addEventListener('click', () => {
+document.querySelector('.restart').addEventListener('click', resetGame);
+document.querySelector('modal_replay').addEventListener('click', resetGame); () => {
     console.log('replay');
-    //call reset fx
+    ;
 });
